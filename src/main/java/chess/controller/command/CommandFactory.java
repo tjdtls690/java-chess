@@ -22,7 +22,7 @@ public enum CommandFactory {
     
     private static CommandFactory from(String otherCommand) {
         return Arrays.stream(values())
-                .filter(commandFactory -> commandFactory.name().equals(otherCommand.toUpperCase()))
+                .filter(commandFactory -> commandFactory.name().equalsIgnoreCase(otherCommand))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 명령입니다. 다시 입력해주세요."));
     }
